@@ -1,0 +1,6 @@
+set xlabel "Matrix dimension"
+set ylabel "Time [s]"
+set log y
+plot "Test.csv" u 1:2:3:4 t "Numpy" w yerrorlines, \
+		 "" u 5:6:7:8 t "Python/BLAS" w yerrorlines, \
+		 "cpp.csv" u 1:2:3:4 t "c++/BLAS" w yerrorlines
