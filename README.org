@@ -1,0 +1,5 @@
+#+TITLE: [[http://stackoverflow.com/q/7596612/][Benchmarking (python vs. c++ using BLAS) and (numpy)]]
+
+To compute & plot the benchmark results, just type:
+
+: $ make
