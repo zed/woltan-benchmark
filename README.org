@@ -1,5 +1,13 @@
 #+TITLE: [[http://stackoverflow.com/q/7596612/][Benchmarking (python vs. c++ using BLAS) and (numpy)]]
 
-To compute & plot the benchmark results, just type:
+* to compute & plot the benchmark results, just type:
 
 : $ make
+
+* to download as tarball
+
+: wget -O woltan-benchmark.tar.gz https://github.com/zed/woltan-benchmark/tarball/master
+
+* to clone the repo
+
+: git clone git://github.com/zed/woltan-benchmark.git
