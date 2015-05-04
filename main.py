@@ -1,11 +1,12 @@
 import ctypes
 from ctypes import byref, c_char, c_int, c_float
+from ctypes.util import find_library
 import numpy
 import os
 import subprocess
 import timeit
 
-_blaslib = ctypes.cdll.LoadLibrary("libblas.so")
+_blaslib = ctypes.cdll.LoadLibrary(find_library('blas') or 'libblas.so')
 
 def Mul(m1, m2, i, r):
 
