@@ -1,12 +1,16 @@
+#!/usr/bin/env python
 import ctypes
-from ctypes import byref, c_char, c_int, c_float
-from ctypes.util import find_library
-import numpy
 import os
 import subprocess
+import sys
 import timeit
+from ctypes import byref, c_char, c_float, c_int
+from ctypes.util import find_library
 
-_blaslib = ctypes.cdll.LoadLibrary(find_library('blas') or 'libblas.so')
+import numpy
+
+libblas_so_name = sys.argv[1] if len(sys.argv) > 1 else find_library('blas')
+_blaslib = ctypes.cdll.LoadLibrary(libblas_so_name or 'libblas.so')
 
 def Mul(m1, m2, i, r):
 

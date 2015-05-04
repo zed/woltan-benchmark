@@ -6,9 +6,15 @@
 #include <time.h>
 #include <sys/time.h>
 
+#define QUOTE(name) #name
+#define STR(macro) QUOTE(macro)
+
 using namespace std;
 
 #define REPEAT 20
+#ifndef LIBBLAS_SO
+#define LIBBLAS_SO libblas.so
+#endif /* !LIBBLAS_SO */
 
 typedef void (*func_sgemm)(char*, char*, int*, int*, int*, float*, float*, int*, float*, int*, float*, float*, int*);
 
@@ -16,7 +22,7 @@ void* GetLibrarayFunction(string function)
 {
   void* handle = NULL;
 
-  handle = dlopen("libblas.so", RTLD_LAZY);
+  handle = dlopen(STR(LIBBLAS_SO), RTLD_LAZY);
 
   if(!handle)
     throw "Could not load library";
