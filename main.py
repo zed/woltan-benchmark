@@ -9,7 +9,7 @@ _blaslib = ctypes.cdll.LoadLibrary("libblas.so")
 
 def Mul(m1, m2, i, r):
 
-	no_trans = c_char("n")
+	no_trans = c_char(b"n")
 	n = c_int(i)
 	one = c_float(1.0)
 	zero = c_float(0.0)
@@ -36,7 +36,7 @@ if __name__ == '__main__':
 		r = numpy.zeros((i,i), numpy.float32)
 		tBlas = timeit.Timer("Mul(m1, m2, i, r)", "import numpy; from __main__ import i, m1, m2, r, Mul")
 		rBlas.append((i, tBlas.repeat(20, 1)))
-		print i
+		print(i)
 		
 	f = open("Test.csv", "w")
 	
